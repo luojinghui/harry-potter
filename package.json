@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "harry_potter.",
   "scripts": {
-     "test": "jasmine"
+    "test": "jasmine"
   },
   "author": "luo",
   "license": "ISC",
   "devDependencies": {
     "jasmine": "^2.3.2"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
   }
 }
