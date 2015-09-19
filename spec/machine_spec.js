@@ -1,15 +1,28 @@
 'use strict';
-var machine = require('../src/machine.js');
+var Machine = require('../src/model/machine.js');
 
 describe('use test machine funtion',function() {
     describe("machine()",function() {
 
-        it('give discount kind and calculate discoutn price', function() {
-            var kind = {
-                1: [1, 2, 3, 4],
-                2: [1, 2, 3, 5]
-            }
-            expect(machine..toBe(4);
+        xit('give discount kind and calculate discoutn price', function() {
+            var machine = new Machine();
+            var kind = [1,2,3,4];
+
+            expect(machine.discountPrice(kind)).toBe(25.6);
+        });
+
+        xit('give discount kind and calculate discoutn price', function() {
+            var machine = new Machine();
+            var kind = [1];
+
+            expect(machine.discountPrice(kind)).toBe(8);
+        });
+
+        xit('give discount kind and calculate discoutn price', function() {
+            var machine = new Machine();
+            var kind = [1,2,3,4,5];
+
+            expect(machine.discountPrice(kind)).toBe(30);
         });
     });
 })
