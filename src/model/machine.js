@@ -1,18 +1,19 @@
 'use strict'
 var load = require('./fixtures.js');
+var _ = require('lodash');
 
-function Machine(number) {
-    this.number = number;
-}
+function Machine() {}
 
-Machine.prototype.discountPrice = function(kind) {
+Machine.prototype.discountPrice = function(bestGroups) {
     var loadPromotion = load.loadPromotions();
-    var discountPrice;
+    var discountPrice = 0;
 
-    loadPromotion.forEach(function(val, i) {
-        if(val.amount === kind.length) {
-            discountPrice = val.price * kind.length;
-        }
+    _.forEach(bestGroups, function(valOne) {
+        _.forEach(loadPromotion, function(valTwo) {
+            if(valTwo.amount === valOne.length) {
+                discountPrice += valTwo.price * valOne.length;
+            }
+        })
     })
     return discountPrice;
 }
