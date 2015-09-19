@@ -40,7 +40,25 @@ Basket.prototype.getBasicGroup = function() {
         _.remove(kindCount, function(val) {
             return val === 1;
         })
+        kindCount = _.map(kindCount, function(val) {
+            return val - 1;
+        })
     }
+}
+
+Basket.prototype.getBestGroup = function() {
+    var groups = _.clone(this.groups);
+
+    _.forEach(groups, function(valOne, keyOne) {
+        _.forEach(groups, function(valTwo, keytwo) {
+            if(valOne.length === 5 && valTwo.length === 3) {
+                //groups[keyOne] = _.drop(valOne);
+                valOne.length = 4;
+                valTwo.push(1);
+            }
+        })
+    })
+    this.groups = groups;
 }
 
 module.exports = Basket;

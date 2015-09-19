@@ -64,5 +64,86 @@ describe('Basket', function() {
                 2: [1, 1, 1]
             });
         })
+
+        it('if kindCount is sure then return groups', function() {
+            var books = [1, 1, 2, 2, 3, 3, 4, 4, 5];
+            var basket = new Basket();
+
+            basket.getKindCount(books);
+            basket.getBasicGroup();
+
+            var result = basket.groups;
+
+            expect(result).toEqual({
+                1: [1, 1, 1, 1, 1],
+                2: [1, 1, 1, 1]
+            });
+        })
+    })
+
+    describe('.getBestGroup()', function() {
+        it('if kindCount is sure then return bestGroups', function() {
+            var books = [1, 1];
+            var basket = new Basket();
+
+            basket.getKindCount(books);
+            basket.getBasicGroup();
+            basket.getBestGroup();
+
+            var result = basket.groups;
+
+            expect(result).toEqual({1: [1], 2: [1]});
+        })
+
+        it('if kindCount is sure then return groups', function() {
+            var books = [1, 1, 2, 2, 3, 3, 4, 5];
+            var basket = new Basket();
+
+            basket.getKindCount(books);
+            basket.getBasicGroup();
+            basket.getBestGroup();
+
+            var result = basket.groups;
+
+            expect(result).toEqual({
+                1: [1, 1, 1, 1],
+                2: [1, 1, 1, 1]
+            });
+        })
+
+        it('if kindCount is sure then return groups', function() {
+            var books = [1, 1, 2, 2, 3, 3, 4, 4, 5];
+            var basket = new Basket();
+
+            basket.getKindCount(books);
+            basket.getBasicGroup();
+            basket.getBestGroup();
+
+            var result = basket.groups;
+
+            expect(result).toEqual({
+                1: [1, 1, 1, 1, 1],
+                2: [1, 1, 1, 1]
+            });
+        })
+
+        it('if kindCount is sure then return groups', function() {
+            var books = [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 5, 5];
+            var basket = new Basket();
+
+            basket.getKindCount(books);
+            basket.getBasicGroup();
+            basket.getBestGroup();
+
+            var result = basket.groups;
+
+            expect(result).toEqual({
+                1: [1, 1, 1, 1],
+                2: [1, 1, 1, 1],
+                3: [1, 1, 1, 1],
+                4: [1, 1, 1, 1],
+                5: [1, 1, 1, 1]
+            });
+        })
     })
 })
