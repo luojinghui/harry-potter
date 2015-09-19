@@ -4,25 +4,48 @@ var Machine = require('../src/model/machine.js');
 describe('use test machine funtion',function() {
     describe("machine()",function() {
 
-        xit('give discount kind and calculate discoutn price', function() {
+        it('give discount bestGroups and calculate discoutn price', function() {
             var machine = new Machine();
-            var kind = [1,2,3,4];
+            var bestGroups = {1: [1]};
+            var result = machine.discountPrice(bestGroups);
 
-            expect(machine.discountPrice(kind)).toBe(25.6);
+            expect(result).toBe(8);
         });
 
-        xit('give discount kind and calculate discoutn price', function() {
+        it('give discount bestGroups and calculate discoutn price', function() {
             var machine = new Machine();
-            var kind = [1];
+            var bestGroups = {
+                1: [1, 1, 1, 1],
+                2: [1, 1, 1, 1]
+            };
+            var result = machine.discountPrice(bestGroups);
 
-            expect(machine.discountPrice(kind)).toBe(8);
+            expect(result).toBe(51.2);
         });
 
-        xit('give discount kind and calculate discoutn price', function() {
+        it('give discount bestGroups and calculate discoutn price', function() {
             var machine = new Machine();
-            var kind = [1,2,3,4,5];
+            var bestGroups = {
+                1: [1, 1, 1, 1, 1],
+                2: [1, 1, 1, 1]
+            };
+            var result = machine.discountPrice(bestGroups);
 
-            expect(machine.discountPrice(kind)).toBe(30);
+            expect(result).toBe(55.6);
+        });
+
+        it('give discount bestGroups and calculate discoutn price', function() {
+            var machine = new Machine();
+            var bestGroups = {
+                1: [1, 1, 1, 1],
+                2: [1, 1, 1, 1],
+                3: [1, 1, 1, 1],
+                4: [1, 1, 1, 1],
+                5: [1, 1, 1, 1]
+            };
+            var result = machine.discountPrice(bestGroups);
+
+            expect(result).toBe(128);
         });
     });
 })
