@@ -1,6 +1,8 @@
 'use strict'
 var _ = require('lodash');
 
+var Basket = (function() {
+
 function Basket() {
     this.kindCount = [];
     this.groups = {};
@@ -59,6 +61,8 @@ Basket.prototype.getBestGroup = function() {
         })
     })
     this.groups = groups;
-}
+};
+    return Basket;
+})();    
 
 module.exports = Basket;

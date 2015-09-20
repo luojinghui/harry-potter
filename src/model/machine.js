@@ -2,6 +2,7 @@
 var load = require('./fixtures.js');
 var _ = require('lodash');
 
+var Machine = (function() {
 function Machine() {}
 
 Machine.prototype.discountPrice = function(bestGroups) {
@@ -16,6 +17,8 @@ Machine.prototype.discountPrice = function(bestGroups) {
         })
     })
     return discountPrice;
-}
+};
+    return Machine;
+})();
 
 module.exports = Machine;
