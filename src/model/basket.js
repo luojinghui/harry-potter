@@ -33,9 +33,9 @@ Basket.prototype.getBasicGroup = function() {
     while (biggestNumber[0] > 0) {
         var tempGroup = [];
 
-        for (var i = 0; i < kindCount.length; i++) {
+        _.forEach(kindCount, function(val) {
             tempGroup.push(1);
-        }
+        })
         that.groups[count] = tempGroup;
         count += 1;
         biggestNumber[0] --;
@@ -63,6 +63,6 @@ Basket.prototype.getBestGroup = function() {
     this.groups = groups;
 };
     return Basket;
-})();    
+})();
 
 module.exports = Basket;
